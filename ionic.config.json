@@ -1,0 +1,7 @@
+{
+  "name": "ecommerce-admin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
