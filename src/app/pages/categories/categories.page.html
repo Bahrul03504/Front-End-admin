@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Kategori</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addCategory()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Tambah Kategori
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let category of categories" (click)="selectCategory(category)">
+      <ion-label>
+        <h2>{{ category.name }}</h2>
+        <p *ngIf="category.subCategories?.length">{{ category.subCategories.length }} Subkategori</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editCategory(category)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="deleteCategory(category.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="selectedCategory">
+    <ion-item *ngFor="let subCategory of selectedCategory.subCategories">
+      <ion-label>
+        <h2>{{ subCategory.name }}</h2>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editSubCategory(subCategory)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="deleteSubCategory(subCategory.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <ion-item>
+      <ion-button expand="full" (click)="addSubCategory()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Tambah Subkategori
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

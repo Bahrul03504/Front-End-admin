@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Pesanan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let order of orders">
+      <ion-label>
+        <h2>Pesanan #{{ order.id }}</h2>
+        <p>{{ order.customerName }} - {{ order.customerEmail }}</p>
+        <p>Total: Rp {{ order.totalAmount | number }}</p>
+        <p>Status: {{ order.status }}</p>
+        <p>Tanggal: {{ order.orderDate | date: 'medium' }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="viewOrder(order)">
+          <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="deleteOrder(order.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

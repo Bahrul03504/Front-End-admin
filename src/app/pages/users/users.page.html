@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Pengguna</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addUser()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Tambah Pengguna
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Peran: {{ user.role }}</p>
+        <p>Telepon: {{ user.phone }}</p>
+        <p>Alamat: {{ user.address }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editUser(user)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="deleteUser(user.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

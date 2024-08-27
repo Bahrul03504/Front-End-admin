@@ -1,0 +1,24 @@
+/* app.component.scss */
+ion-menu {
+    --width: 250px; /* Lebar sidebar */
+  }
+  
+  ion-toolbar {
+    --background: var(--ion-color-primary); /* Warna toolbar utama */
+    --color: #ffffff; /* Warna teks toolbar */
+  }
+  
+  ion-content {
+    --background: #f4f4f4; /* Latar belakang utama */
+  }
+  
+  ion-item {
+    --background: transparent; /* Membuat item transparan */
+    --border-color: transparent; /* Menghilangkan border */
+    font-weight: bold; /* Teks lebih tebal */
+  }
+  
+  ion-item:hover {
+    --background: var(--ion-color-light); /* Warna saat di-hover */
+  }
+  

@@ -1,3 +1,59 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- Sidebar Menu -->
+  <ion-menu side="start" menuId="first" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Admin Panel</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <!-- Dashboard -->
+        <ion-item routerLink="/dashboard" routerDirection="root">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Dashboard</ion-label>
+        </ion-item>
+
+        <!-- Produk -->
+        <ion-item routerLink="/products" routerDirection="root">
+          <ion-icon name="pricetag-outline" slot="start"></ion-icon>
+          <ion-label>Produk</ion-label>
+        </ion-item>
+
+        <!-- Kategori -->
+        <ion-item routerLink="/categories" routerDirection="root">
+          <ion-icon name="list-outline" slot="start"></ion-icon>
+          <ion-label>Kategori</ion-label>
+        </ion-item>
+
+        <!-- Pesanan -->
+        <ion-item routerLink="/orders" routerDirection="root">
+          <ion-icon name="cart-outline" slot="start"></ion-icon>
+          <ion-label>Pesanan</ion-label>
+        </ion-item>
+
+        <!-- Pengguna -->
+        <ion-item routerLink="/users" routerDirection="root">
+          <ion-icon name="people-outline" slot="start"></ion-icon>
+          <ion-label>Pengguna</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main Content -->
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Admin Panel</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>
+  </div>
 </ion-app>

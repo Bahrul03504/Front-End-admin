@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Produk</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addProduct()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Tambah Produk
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail slot="start">
+        <img [src]="product.imageUrl">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>Kategori: {{ product.category }}</p>
+        <p>Harga: Rp {{ product.price | number }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editProduct(product)">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="deleteProduct(product.id)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

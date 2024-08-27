@@ -1,15 +1,32 @@
+// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesPageModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('./pages/orders/orders.module').then(m => m.OrdersPageModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./pages/users/users.module').then(m => m.UsersPageModule)
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./pages/products/products.module').then( m => m.ProductsPageModule)
   },
 ];
 

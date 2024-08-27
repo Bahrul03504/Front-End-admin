@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ product ? 'Edit Produk' : 'Tambah Produk' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Nama Produk</ion-label>
+      <ion-input [(ngModel)]="formData.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Kategori</ion-label>
+      <ion-select [(ngModel)]="formData.category">
+        <ion-select-option *ngFor="let category of categories" [value]="category.name">
+          {{ category.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Harga</ion-label>
+      <ion-input type="number" [(ngModel)]="formData.price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Deskripsi</ion-label>
+      <ion-textarea [(ngModel)]="formData.description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">URL Gambar</ion-label>
+      <ion-input [(ngModel)]="formData.imageUrl"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button expand="full" (click)="save()">
+        <ion-icon name="save-outline"></ion-icon>
+        Simpan
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

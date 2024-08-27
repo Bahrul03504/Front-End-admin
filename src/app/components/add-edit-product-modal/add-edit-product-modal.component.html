@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? 'Edit Produk' : 'Tambah Produk' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+    <ion-item>
+      <ion-label position="floating">Nama Produk</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Deskripsi</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Harga</ion-label>
+      <ion-input type="number" formControlName="price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Stok</ion-label>
+      <ion-input type="number" formControlName="stock"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Kategori</ion-label>
+      <ion-select formControlName="category">
+        <ion-select-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Sub Kategori</ion-label>
+      <ion-select formControlName="sub_category_id">
+        <ion-select-option *ngFor="let subCategory of subCategories" [value]="subCategory.id">{{ subCategory.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Gambar</ion-label>
+      <ion-input type="file" (change)="onImageSelected($event)"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="productForm.invalid">
+      {{ isEditMode ? 'Update' : 'Add' }} Produk
+    </ion-button>
+  </form>
+</ion-content>
